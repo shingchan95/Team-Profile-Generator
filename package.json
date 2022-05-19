@@ -1,0 +1,23 @@
+{
+  "name": "week10-coursework",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shingchan95/week10-coursework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shingchan95/week10-coursework/issues"
+  },
+  "homepage": "https://github.com/shingchan95/week10-coursework#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
