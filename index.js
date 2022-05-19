@@ -17,7 +17,12 @@ function role_list_inquirer(){
         console.log(answers.role_list)
         if (answers.role_list == "Employee"){
             employee_inquirer()
-
+        }if (answers.role_list == "Employee"){
+            employee_manager()
+        }if (answers.role_list == "Employee"){
+            employee_engineer()
+        }if (answers.role_list == "Employee"){
+            employee_intern()
         }
     })
 }
