@@ -2,18 +2,17 @@ const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern")
 const Engineer = require("./lib/Engineer")
 
-var inquirer = require('inquirer');
+// var inquirer = require('inquirer');
 
-    inquirer
-    .prompt([
-        {name:"role_list",
-        type: "list",
-        message: "Choose a role to add.",
-        choices: ["Manager","Engineer","Intern"]
-    },
+//     inquirer
+//     .prompt([
+//         {name:"role_list",
+//         type: "list",
+//         message: "Choose a role to add.",
+//         choices: ["Manager","Engineer","Intern"]
+//     },
     
-])
-
+// ])
 
 
     // employee_inquirer() {
@@ -34,7 +33,7 @@ var inquirer = require('inquirer');
     //    ])
     // }
 
-    
+
     // .then((answers) => {
     //     console.log(answers.role_list)
     //     if (answers.role_list == "Manager"){
