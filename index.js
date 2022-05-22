@@ -4,7 +4,7 @@ const Engineer = require("./lib/Engineer")
 
 
 let Manager_profile;
-let intern_profile;
+let Intern_profile;
 let Engineer_profile;
 
 
@@ -61,8 +61,7 @@ var inquirer = require('inquirer');
 
          .then ((answers) => {
             Manager_profile = new Manager(employee_answer.employee_name, employee_answer.employee_id, employee_answer.employee_email, answers.employee_officeNumber)
-            console.log(Manager_profile)
-            managerrender()
+            manager_render()
         })
         
     }
@@ -78,8 +77,8 @@ var inquirer = require('inquirer');
 
         ]) 
         .then ((answers) => {
-            intern_profile = new Intern(employee_answer.employee_name, employee_answer.employee_id, employee_answer.employee_email, answers.employee_school)
-            console.log(intern_profile)
+            Intern_profile = new Intern(employee_answer.employee_name, employee_answer.employee_id, employee_answer.employee_email, answers.employee_school)
+            intern_render()
         })
     }
 
@@ -95,27 +94,27 @@ var inquirer = require('inquirer');
 
          .then ((answers) => {
             Engineer_profile = new Engineer(employee_answer.employee_name, employee_answer.employee_id, employee_answer.employee_email, answers.employee_github)
-            console.log(Engineer_profile)
+            engineer_render()
         })
     }
      
 
 
-    const managerrender = () => {
+    const manager_render = () => {
         const {employee_name, id, email, officeNumber}=Manager_profile
 
         let html_data = `<div class="team">
-        <div class="card">
-        <div class="card-header">
-        <h2>${employee_name}</h2>
-        <p>Employee ID: ${id}</p>
-        <p>Email: <a href="mailto:${email}">${email}</a></p>
-        <p>Office Number: ${officeNumber}</p>
-        </div>
-        </div>
-        <!--managers-->`
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>${employee_name}</h2>
+                                    <p>Employee ID: ${id}</p>
+                                    <p>Email: <a href="mailto:${email}">${email}</a></p>
+                                    <p>Office Number: ${officeNumber}</p>
+                                </div>
+                            </div>
+                         </div>    
+                         <!--managers-->`
         
-
         const fs = require('fs');
         fs.readFile("./Develop/dist/team.html",{encoding:'utf8', flag:'r'}, (err, data) =>{
             if (err) {
@@ -130,29 +129,59 @@ var inquirer = require('inquirer');
 }
 
 
-    // <div class="team">
-    //         <div class="card">
-    //         <div class="card-header">
-    //             <h2>Manager</h2>
-    //             <p>Employee ID: 1</p>
-    //             <p>Email: <a href="mailto:manager@example.com">manager@example.com</a></p>
-    //             <p>Office Number: 01234 567890</p>
-    //         </div>
-    //     </div>
-    //         <div class="card">
-    //         <div class="card-header">
-    //             <h2>Engineer</h2>
-    //             <p>Employee ID: 2</p>
-    //             <p>Email: <a href="mailto:engineer@example.com">engineer@example.com</a></p>
-    //             <p>GitHub: <a href="https://github.com/engineer" target="_blank">engineer</a></p>
-    //         </div>
-    //     </div>
-    //         <div class="card">
-    //         <div class="card-header">
-    //             <h2>Intern</h2>
-    //             <p>Employee ID: 3</p>
-    //             <p>Email: <a href="mailto:intern@example.com">intern@example.com</a></p>
-    //             <p>School: Intern School</p>
-    //         </div>
-    //     </div>
-    //     </div>  
+    const intern_render = () => {
+        const {employee_name, id, email, school}=Intern_profile
+
+        let html_data = `<div class="team">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>${employee_name}</h2>
+                                    <p>Employee ID: ${id}</p>
+                                    <p>Email: <a href="mailto:${email}">${email}</a></p>
+                                    <p>School: ${school}</p>
+                                </div>
+                            </div>
+                         </div>
+                         <!--intern-->`
+        
+        const fs = require('fs');
+        fs.readFile("./Develop/dist/team.html",{encoding:'utf8', flag:'r'}, (err, data) =>{
+            if (err) {
+                return console.log(err);
+            }
+            var myHtml = data.replace("<!--intern-->", html_data);
+
+                fs.writeFile("./Develop/dist/team.html", myHtml, 'utf8', function (err) {
+                    if (err) return console.log(err);
+                });
+            });   
+    }
+
+    const engineer_render = () => {
+        const {employee_name, id, email, github}=Engineer_profile
+
+        let html_data = `<div class="team">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>${employee_name}</h2>
+                                    <p>Employee ID: ${id}</p>
+                                    <p>Email: <a href="mailto:${email}">${email}</a></p>
+                                    <p>GitHub: <a href="${github}" target="_blank">${github}</a></p>
+                                </div>
+                            </div>
+                         </div>
+                         <!--engineer-->`
+        
+        const fs = require('fs');
+        fs.readFile("./Develop/dist/team.html",{encoding:'utf8', flag:'r'}, (err, data) =>{
+            if (err) {
+                return console.log(err);
+            }
+            var myHtml = data.replace("<!--engineer-->", html_data);
+
+                fs.writeFile("./Develop/dist/team.html", myHtml, 'utf8', function (err) {
+                    if (err) return console.log(err);
+                });
+            });   
+    }
+
