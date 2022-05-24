@@ -35,7 +35,7 @@ function calling(){
         }
     })
 
-    let employee_manager = (role_name) => {
+    let employee_manager = () => {
         inquirer
         .prompt([
            {name:"employee_name",
@@ -66,7 +66,7 @@ function calling(){
        })
        
     }
-    let employee_intern = (role_name) => {
+    let employee_intern = () => {
         inquirer
         .prompt([
            {name:"employee_name",
@@ -96,7 +96,7 @@ function calling(){
            calling.call(this)
        })
     }
-    let employee_engineer = (employee_answer) => {
+    let employee_engineer = () => {
         inquirer
         .prompt([
            {name:"employee_name",

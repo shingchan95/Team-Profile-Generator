@@ -1,41 +1,22 @@
 const Intern = require("../lib/Intern");
 
-describe("intern_test", () => {
-
-    describe("intern_name_test", () => {
-        it("should show intern name", () => {
-        const employee_name = "Tommy";     
-        const result = new Intern().getName(employee_name);
-        expect(result).toEqual(employee_name);
-        });
-    })
-
-    describe("intern_id_test", () => {
-        it("should show intern id", () => {
-        const id = "2022";
-        const result = new Intern().getId(id);
-        expect(result).toEqual(id);
-        });
-    })
-    describe("intern_email_test", () => {
-        it("should show intern email", () => {
-        const email = "tommy@bootcamp.com";
-        const result = new Intern().getEmail(email);     
-        expect(result).toEqual(email);
-        });
-    })
-    describe("intern_role", () => {
-        it("should show intern role", () => {
-        const role = "Intern";
-        const result = new Intern().getRole(role);     
-        expect(result).toEqual(role);
-        });
-    })
-    describe("intern_school", () => {
-        it("should show intern school", () => {
-        const school = "University of manchester";
-        const result = new Intern().getSchool(school);     
-        expect(result).toEqual(school);
+describe("intern", () => {
+    describe("Intern_test", () => {
+        it("test the constructor", () => {
+            
+            const employee_name= "alex"
+            const id = "2022";
+            const email = "tony@bootcamp.com";
+            const school = "alex high school"
+            const role = "Intern";
+            
+            const engineer_profile= new Intern(employee_name, id, email, school)
+       
+        expect(engineer_profile.getName()).toEqual(employee_name);
+        expect(engineer_profile.getId()).toEqual(id);
+        expect(engineer_profile.getEmail()).toEqual(email);
+        expect(engineer_profile.getSchool()).toEqual(school);
+        expect(engineer_profile.getRole()).toEqual(role);
         });
     })
 })
