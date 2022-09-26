@@ -4,7 +4,7 @@
 
 The application provides command-line application that accepts user input and generate a webpage with the inputs. It has been built with Node.js and Inquirer NPM package
 
-The application can also test 
+The application also test if the given input produces the expected result by defining what to expect as the output using Jest.
 
 ## User Story
 
