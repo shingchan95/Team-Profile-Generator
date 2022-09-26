@@ -1,5 +1,11 @@
 # Team Profile Generator
 
+## Description
+
+The application provides command-line application that accepts user input and generate a webpage with the inputs. It has been built with Node.js and Inquirer NPM package
+
+The application can also test 
+
 ## User Story
 
 ```md
